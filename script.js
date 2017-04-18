@@ -38,7 +38,7 @@ var list = [
   { 
 	  name: "juice",
 	  quantity: 3,
-	  price: 5.00,
+	  price: 1.00,
   },
   { 
 	  name: "LaCroix",
@@ -58,16 +58,20 @@ var list = [
 ];
 
 function shoppingCart() {
-//Declare the initial total as 0
+	//Declare the initial total as 0
 	var totalPreTax = 0;
-//loop through each item in the list array
+	//loop through each item in the list array
 	list.forEach(function(item) {
-//add price of item to the total
+		//list all the items on the list
+		console.log(item.name + " " + (item.quantity*item.price));
+		//add price of item to the total
 		totalPreTax += (item.quantity * item.price);
 	});	
-//add tax
-	var total = "$" + (totalPreTax + (totalPreTax*0.6))
-//output total
+	//print out total before tax
+	console.log(totalPreTax);
+	//add tax
+	var total = "$" + (totalPreTax + (totalPreTax*0.06))
+	//output total
 	console.log(total);	
 }
 
