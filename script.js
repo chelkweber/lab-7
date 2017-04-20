@@ -2,77 +2,90 @@
 var list = [
   { 
 	  name: "avacado",
-	  quantity: 2,
-	  price: 1.00,
+	  price: 3.25,
   },
   { 
 	  name: "limes",
-	  quantity: 2,
-	  price: 0.75,
+	  price: 1.75,
   },
   { 
 	  name: "lettuce",
-	  quantity: 1,
-	  price: 1.00,
+	  price: 1.55,
   },
   { 
 	  name: "bread",
-	  quantity: 1,
-	  price: 2.00,
+	  price: 2.25,
   },
   { 
 	  name: "eggs",
-	  quantity: 1,
 	  price: 3.49,
   },
   { 
 	  name: "chips",
-	  quantity: 1,
 	  price: 1.59,
   },
   { 
 	  name: "Almond Milk",
-	  quantity: 1,
 	  price: 2.99,
   },
   { 
 	  name: "juice",
-	  quantity: 3,
-	  price: 1.00,
+	  price: 2.99,
   },
   { 
 	  name: "LaCroix",
-	  quantity: 1,
 	  price: 2.99,
   },
   { 
 	  name: "beer",
-	  quantity: 1,
 	  price: 9.99,
   },
   { 
 	  name: "ice cream",
-	  quantity: 1,
 	  price: 3.50,
   },
 ];
+
+
+function displayList(list) {
+	var shoppingList = document.getElementById('shopping-list')
+	//declare var for item name
+	var itemName = '';
+	//declare var for item price
+	var itemPrice = '';
+	//forEach loop through the array
+	list.forEach(function(item){
+		//create element for name of each item
+		itemName = document.createElement('li');
+		itemName.innerText = item.name;
+		shoppingList.appendChild(itemName);
+		//create element for price of each item
+		itemPrice = document.createElement('span');
+		itemPrice.innerText = " $" +item.price;
+		itemName.appendChild(itemPrice);
+	});
+}
+
+displayList(list);
 
 function shoppingCart() {
 	//Declare the initial total as 0
 	var totalPreTax = 0;
 	//loop through each item in the list array
 	list.forEach(function(item) {
-		//list all the items on the list
-		console.log(item.name + " " + (item.quantity*item.price));
 		//add price of item to the total
-		totalPreTax += (item.quantity * item.price);
+		totalPreTax += item.price;
 	});	
-	//print out total before tax
-	console.log(totalPreTax);
 	//add tax
 	var total = "$" + (totalPreTax + (totalPreTax*0.06))
-	//output total
-	console.log(total);	
+	//display subtotal in document
+	subtotal = document.createElement('p');
+	subtotal.innerText = totalPreTax;
+	document.body.appendChild(subtotal);
+	//display total in document
+	displayTotal = document.createElement('p');
+	displayTotal.innerText = total;
+	document.body.appendChild(displayTotal);
 }
 
-shoppingCart();
+shoppingCart(list);
