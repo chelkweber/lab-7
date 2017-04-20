@@ -1,0 +1,30 @@
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	background: #DBF9F4;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Josefin Slab', serif;
+	text-align: center;
+	color: #6D6A75;
+}
+
+ul {
+	padding-left: 45%;
+	list-style: 
+}
+
+span {
+	padding-left: 3%;
+}
+
+p {
+	text-align: center;
+	font-weight: bold;
+}
+
+#header {
+	background: #D9D7DD;
+	padding: 2%;
+}

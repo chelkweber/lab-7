@@ -1,3 +1,7 @@
+var heading = document.createElement('h1');
+heading.innerHTML = "Shopping List";
+header.appendChild(heading);
+
 //list of items 
 var list = [
   { 
@@ -80,12 +84,15 @@ function shoppingCart() {
 	var total = "$" + (totalPreTax + (totalPreTax*0.06))
 	//display subtotal in document
 	subtotal = document.createElement('p');
-	subtotal.innerText = totalPreTax;
+	subtotal.innerText = "Subtotal: $" + totalPreTax;
 	document.body.appendChild(subtotal);
 	//display total in document
 	displayTotal = document.createElement('p');
-	displayTotal.innerText = total;
+	displayTotal.innerText = "Total: " + total;
 	document.body.appendChild(displayTotal);
 }
 
 shoppingCart(list);
+
+
+
