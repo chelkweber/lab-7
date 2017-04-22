@@ -1,15 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Shopping Cart</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Shopping List</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans+Condensed:300" rel="stylesheet">
 	</head>
 	<body>
-		<div id="header">	
+		<div id="header">
 		</div>
-		<ul id="shopping-list">
-		</ul>
+		<div id="item-entry">
+			<input id="name-input" type="text" placeholder="Name of Item">
+			<input id="quantity-input" type="number" placeholder="Quantity">
+			<input id="price-input" type="text" placeholder="Price">
+			<button type="button" onclick="addItem()">Add</button>
+			<button type="button" onclick="removeItem()">Remove</button>
+		</div>
+		<div id="shopping-list">
+			<h2>Shopping List</h2>
+			<div class = "column">
+				<ul id="name">
+				</ul>
+			</div>
+			<div class = "column">
+				<ul id="quantity">
+				</ul>
+			</div>
+			<div class = "column">
+				<ul id="price">
+				</ul>
+			</div>
+			<div>
+				<p>Total: <span id=total-display></span></p>
+			</div>
+		</div>
+		
 		<script src="script.js"></script>
 	</body>
 </html>

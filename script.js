@@ -1,98 +1,55 @@
-var heading = document.createElement('h1');
-heading.innerHTML = "Shopping List";
-header.appendChild(heading);
+var costArray = [];
+var nameList = document.getElementById('name');
+var quantityList = document.getElementById('quantity');
+var priceList = document.getElementById('price');
+var totalDisplay = document.getElementById('total-display');
 
-//list of items 
-var list = [
-  { 
-	  name: "avacado",
-	  price: 3.25,
-  },
-  { 
-	  name: "limes",
-	  price: 1.75,
-  },
-  { 
-	  name: "lettuce",
-	  price: 1.55,
-  },
-  { 
-	  name: "bread",
-	  price: 2.25,
-  },
-  { 
-	  name: "eggs",
-	  price: 3.49,
-  },
-  { 
-	  name: "chips",
-	  price: 1.59,
-  },
-  { 
-	  name: "Almond Milk",
-	  price: 2.99,
-  },
-  { 
-	  name: "juice",
-	  price: 2.99,
-  },
-  { 
-	  name: "LaCroix",
-	  price: 2.99,
-  },
-  { 
-	  name: "beer",
-	  price: 9.99,
-  },
-  { 
-	  name: "ice cream",
-	  price: 3.50,
-  },
-];
-
-
-function displayList(list) {
-	var shoppingList = document.getElementById('shopping-list')
-	//declare var for item name
-	var itemName = '';
-	//declare var for item price
-	var itemPrice = '';
-	//forEach loop through the array
-	list.forEach(function(item){
-		//create element for name of each item
-		itemName = document.createElement('li');
-		itemName.innerText = item.name;
-		shoppingList.appendChild(itemName);
-		//create element for price of each item
-		itemPrice = document.createElement('span');
-		itemPrice.innerText = " $" +item.price;
-		itemName.appendChild(itemPrice);
+function addItem() {
+	var total = 0;
+	//add name to list
+	var name = document.createElement('li');
+	name.innerText = document.getElementById('name-input').value;;
+	nameList.appendChild(name);
+	//add quantity to list
+	var quantity = Number(document.getElementById('quantity-input').value);
+	var quantityDisplay = document.createElement('li');
+	quantityDisplay.innerText = quantity;
+	quantityList.appendChild(quantityDisplay);
+	//add price to list
+	var price = Number(document.getElementById('price-input').value);
+	price = price.toFixed(2);
+	priceDisplay = document.createElement('li');
+	priceDisplay.innerText = "$" + price;
+	priceList.appendChild(priceDisplay);
+	//add total price to array
+	var cost = quantity * price;
+	costArray.push(cost);
+	//total all cost
+	costArray.forEach(function(itemCost){
+		total += itemCost;
 	});
+	total = Number(total.toFixed(2));
+	//display total on page
+//	var totalDisplay = document.getElementById('total-display');
+	totalDisplay.innerText = "$" + total;	
 }
 
-displayList(list);
-
-function shoppingCart() {
-	//Declare the initial total as 0
-	var totalPreTax = 0;
-	//loop through each item in the list array
-	list.forEach(function(item) {
-		//add price of item to the total
-		totalPreTax += item.price;
-	});	
-	//add tax
-	var total = "$" + (totalPreTax + (totalPreTax*0.06))
-	//display subtotal in document
-	subtotal = document.createElement('p');
-	subtotal.innerText = "Subtotal: $" + totalPreTax;
-	document.body.appendChild(subtotal);
-	//display total in document
-	displayTotal = document.createElement('p');
-	displayTotal.innerText = "Total: " + total;
-	document.body.appendChild(displayTotal);
+function removeItem() {
+	total = 0;
+	// remove name
+	nameList.removeChild(nameList.lastChild);
+	// remove quantity
+	quantityList.removeChild(quantityList.lastChild);
+	// remove price
+	priceList.removeChild(priceList.lastChild);
+	//alter total
+	costArray.pop();
+	costArray.forEach(function(itemCost){
+		total += itemCost;
+	});
+	total = Number(total.toFixed(2));
+	//display total on page
+	totalDisplay.innerText = "$" + total;	
 }
-
-shoppingCart(list);
-
 
 
