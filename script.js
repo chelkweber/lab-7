@@ -1,4 +1,4 @@
-var costArray = [];
+ var costArray = [];
 var nameList = document.getElementById('name');
 var quantityList = document.getElementById('quantity');
 var priceList = document.getElementById('price');
